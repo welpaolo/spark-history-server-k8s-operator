@@ -15,7 +15,7 @@
       "customType": "regex",
       "managerFilePatterns": ["/^metadata\\.yaml$/"],
       "matchStrings": [
-        "# 3\\.5-22\\.04_edge.*\\n\\s*upstream-source: ghcr\\.io/canonical/charmed-spark@(?<currentDigest>sha256:[a-f0-9]+)"
+        "upstream-source: ghcr\\.io/canonical/charmed-spark@(?<currentDigest>sha256:[a-f0-9]+)"
       ],
       "depNameTemplate": "ghcr.io/canonical/charmed-spark",
       "currentValueTemplate": "3.5-22.04_edge",
@@ -26,7 +26,7 @@
   "packageRules": [
     {
       "matchDatasources": ["docker"],
-      "matchPackageNames": ["https://github.com/canonical/charmed-spark-rock/pkgs/container/charmed-spark"],
+      "matchPackageNames": ["ghcr.io/canonical/charmed-spark"],
       "groupName": "charmed-spark-edge"
     }
   ],
