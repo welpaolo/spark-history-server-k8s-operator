@@ -30,7 +30,6 @@
       "matchPackageNames": ["ghcr.io/canonical/charmed-spark"],
       "allowedVersions": "3.5-22.04_edge",
       "groupName": "charmed-spark-edge",
-      "schedule": ["* 1-6 1-7 * 5"]
     }
   ],
   "ignoreDeps": ["ubuntu"]
