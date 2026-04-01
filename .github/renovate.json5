@@ -1,18 +1,13 @@
-{
+ {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "github>canonical/data-platform//renovate_presets/charm.json5",
-  ],
+  "extends": ["github>canonical/data-platform//renovate_presets/charm.json5"],
   "reviewers": ["team:processing"],
-  // Between 1AM and 6:59AM, first Friday of the month
   "schedule": ["* 1-6 1-7 * 5"],
-  "lockFileMaintenance": {
-    "enabled": true,
-    "schedule": ["* 1-6 1-7 * 5"]
-  },
+  "lockFileMaintenance": {"enabled": true, "schedule": ["* 1-6 1-7 * 5"]},
   "ignoreDeps": ["ubuntu"],
-  "regexManagers": [
+  "customManagers": [
     {
+      "customType": "regex",
       "fileMatch": ["^metadata\\.yaml$"],
       "matchStrings": [
         "# (?<currentValue>[^\\n]+)\\n\\s+upstream-source: (?<depName>[^@\\n]+)@sha256:(?<currentDigest>[a-f0-9]+)"
@@ -28,5 +23,5 @@
       "followTag": "3.5-22.04_edge",
       "pinDigests": true
     }
-  ],
+  ]
 }
