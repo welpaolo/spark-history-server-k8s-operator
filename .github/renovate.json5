@@ -11,24 +11,22 @@
     "schedule": ["* 1-6 1-7 * 5"]
   },
   "ignoreDeps": ["ubuntu"],
-  "customManagers": [
+  "regexManagers": [
     {
-      "customType": "regex",
-      "fileMatch": ["/^metadata\\.yaml$/"],
+      "fileMatch": ["^metadata\\.yaml$"],
       "matchStrings": [
-        "upstream-source: ghcr\\.io/canonical/charmed-spark@(?<currentDigest>sha256:[a-f0-9]+)"
+        "# (?<currentValue>[^\\n]+)\\n\\s+upstream-source: (?<depName>[^@\\n]+)@sha256:(?<currentDigest>[a-f0-9]+)"
       ],
-      "depNameTemplate": "ghcr.io/canonical/charmed-spark",
-      "currentValueTemplate": "3.5-22.04_edge",
       "datasourceTemplate": "docker",
-      "autoReplaceStringTemplate": "# 3.5-22.04_edge, release date TBD\\n    upstream-source: ghcr.io/canonical/charmed-spark@{{{newDigest}}}"
+      "versioningTemplate": "docker"
     }
   ],
   "packageRules": [
     {
       "matchDatasources": ["docker"],
-      "matchPackageNames": ["ghcr.io/canonical/charmed-spark"],
-      "groupName": "charmed-spark-edge"
+      "matchDepNames": ["ghcr.io/canonical/charmed-spark"],
+      "followTag": "3.5-22.04_edge",
+      "pinDigests": true
     }
-  ]
+  ],
 }
