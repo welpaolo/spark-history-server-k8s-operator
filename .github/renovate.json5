@@ -10,6 +10,7 @@
     "enabled": true,
     "schedule": ["* 1-6 1-7 * 5"]
   },
+  "ignoreDeps": ["ubuntu"],
   "customManagers": [
     {
       "customType": "regex",
@@ -29,6 +30,5 @@
       "matchPackageNames": ["ghcr.io/canonical/charmed-spark"],
       "groupName": "charmed-spark-edge"
     }
-  ],
-  "ignoreDeps": ["ubuntu"]
+  ]
 }
