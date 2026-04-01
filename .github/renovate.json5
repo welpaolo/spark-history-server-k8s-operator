@@ -15,22 +15,22 @@
       "customType": "regex",
       "managerFilePatterns": ["/^metadata\\.yaml$/"],
       "matchStrings": [
-        "# (?<currentValue>\\d+\\.\\d+.*-22\\.04.*), release date .*\\n\\s*upstream-source: (?<depName>ghcr\\.io/canonical/charmed-spark)@(?<currentDigest>sha256:[a-f0-9]+)"
+        "# (?<currentValue>3\\.5-22\\.04_edge), release date .*\\n\\s*upstream-source: (?<depName>ghcr\\.io/canonical/charmed-spark):(?<currentValue>3\\.5-22\\.04_edge)@(?<currentDigest>sha256:[a-f0-9]+)"
       ],
       "replacementStrings": [
-        "# {{{newValue}}}, release date TBD (update manually)\n    upstream-source: {{{depName}}}@{{{newDigest}}}"
+        "# 3.5-22.04_edge, release date TBD (update manually)\n    upstream-source: {{{depName}}}:3.5-22.04_edge@{{{newDigest}}}"
       ],
       "datasourceTemplate": "docker",
-      "versioningTemplate": "docker"
+      "versioningTemplate": "loose"
     }
   ],
   "packageRules": [
     {
       "matchDatasources": ["docker"],
       "matchPackageNames": ["ghcr.io/canonical/charmed-spark"],
-      "groupName": "charmed-spark",
-      "schedule": ["* 1-6 1-7 * 5"],
-      "minimumReleaseAge": "3 days"
+      "allowedVersions": "3.5-22.04_edge",
+      "groupName": "charmed-spark-edge",
+      "schedule": ["* 1-6 1-7 * 5"]
     }
   ],
   "ignoreDeps": ["ubuntu"]
