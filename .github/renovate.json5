@@ -15,7 +15,7 @@
       "customType": "regex",
       "managerFilePatterns": ["/^metadata\\.yaml$/"],
       "matchStrings": [
-        "# 3\\.5-22\\.04_edge, release date .*\\n\\s*upstream-source: ghcr\\.io/canonical/charmed-spark@(?<currentDigest>sha256:[a-f0-9]+)"
+        "# 3\\.5-22\\.04_edge.*\\n\\s*upstream-source: ghcr\\.io/canonical/charmed-spark@(?<currentDigest>sha256:[a-f0-9]+)"
       ],
       "depNameTemplate": "ghcr.io/canonical/charmed-spark",
       "currentValueTemplate": "3.5-22.04_edge",
