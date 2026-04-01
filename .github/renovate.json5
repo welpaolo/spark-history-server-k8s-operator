@@ -26,7 +26,7 @@
   "packageRules": [
     {
       "matchDatasources": ["docker"],
-      "matchPackageNames": ["ghcr.io/canonical/charmed-spark"],
+      "matchPackageNames": ["https://github.com/canonical/charmed-spark-rock/pkgs/container/charmed-spark"],
       "groupName": "charmed-spark-edge"
     }
   ],
